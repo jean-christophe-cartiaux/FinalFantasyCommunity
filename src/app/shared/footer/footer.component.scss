@@ -1,0 +1,32 @@
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  width: 100%;
+}
+.content{
+  max-width:1200px;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .social-media a {
+  color: #495057;
+  font-size: 2rem;
+}
+
+.footer .social-media a:hover {
+  color: #007bff;
+}
+
+.footer .copyright {
+  font-size: 1rem;
+  color: #6c757d;
+  text-align: center;
+  width: 100%;
+}
+
+.p-w-full {
+  width: 100%;
+}
