@@ -1,4 +1,45 @@
-
-<div class="card">
-  <p-menubar [model]="items" />
+<div class="container">
+  <ul class="nav nav-pills custom-navbar">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/actualiter">Actualités</a>
+    </li>
+    <li class="nav-item dropdown"
+        (mouseenter)="onMouseEnter(1)"
+        (mouseleave)="onMouseLeave(1)">
+      <a class="nav-link dropdown-toggle"
+         href="#" role="button"
+         aria-expanded="false">Final Fantasy N°</a>
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen[1]" [class.fade]="isFading[1]">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown"
+        (mouseenter)="onMouseEnter(2)"
+        (mouseleave)="onMouseLeave(2)">
+      <a class="nav-link dropdown-toggle"
+         href="#" role="button"
+         aria-expanded="false">Final Fantasy HS</a>
+      <ul class="dropdown-menu" [class.show]="isDropdownOpen[2]" [class.fade]="isFading[2]">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="fftcg">FFTCG</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " routerLink="event">Event</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="contact">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " routerLink="test">Test</a>
+    </li>
+  </ul>
 </div>

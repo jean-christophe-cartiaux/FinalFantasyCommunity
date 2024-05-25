@@ -1,10 +1,18 @@
 <div class="container">
-  @for (finalFantasy of ffNumeroter;track finalFantasy){
+  @for (finalFantasy of ffNumeroter;track finalFantasy ){
     <app-final-fantasy-n
     [id]="finalFantasy.id"
     [name]="finalFantasy.name"
     [url]="finalFantasy.url"
+    [img]="finalFantasy.img"
     ></app-final-fantasy-n>
+  }
+  @for(finalFantasy of ffHorsSerie;track finalFantasy){
+    <app-final-fantasy-hs
+      [id]="finalFantasy.id"
+      [name]="finalFantasy.name"
+      [url]="finalFantasy.url"
+    ></app-final-fantasy-hs>
   }
 
 </div>

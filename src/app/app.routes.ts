@@ -7,6 +7,7 @@ import {ContactComponent} from "./component/contact/contact.component";
 import {LoginComponent} from "./component/login/login.component";
 import {RegisterComponent} from "./component/register/register.component";
 import {ForumComponent} from "./component/forum/forum.component";
+import {TestComponent} from "./component/test/test.component";
 
 export const routes: Routes = [
   {path:'', redirectTo: '/actualiter', pathMatch: 'full' },
@@ -18,4 +19,5 @@ export const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"forum",component:ForumComponent},
+  {path:"test",component:TestComponent},
 ];

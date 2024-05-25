@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-final-fantasy-hs',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './final-fantasy-hs.component.scss'
 })
 export class FinalFantasyHsComponent {
-
+  @Input() id:number=0;
+  @Input() name:string="";
+  @Input() url:string='';
 }

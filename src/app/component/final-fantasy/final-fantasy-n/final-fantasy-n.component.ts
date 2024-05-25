@@ -13,4 +13,5 @@ export class FinalFantasyNComponent {
   @Input() id:number=0;
   @Input() name:string="";
   @Input() url:string='';
+  @Input() img:string=''
 }
