@@ -1,5 +1,11 @@
-<div class="container">
-  <h3>{{name}}</h3>
-  <p>{{url}}</p>
 
-</div>
+<section>
+
+  @for (image of images; track image) {
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNJxAk4tAHXr9VIPTM0Hn8HwdNOzubHq-S0GTBJI5JGQ&s" alt={images}>
+  }
+  <h4>{{title}}</h4>
+  <p>{{description}}</p>
+
+
+</section>

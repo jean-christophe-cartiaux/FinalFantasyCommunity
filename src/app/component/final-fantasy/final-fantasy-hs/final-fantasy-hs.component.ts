@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 
+
 @Component({
   selector: 'app-final-fantasy-hs',
   standalone: true,
@@ -8,7 +9,9 @@ import {Component, Input} from '@angular/core';
   styleUrl: './final-fantasy-hs.component.scss'
 })
 export class FinalFantasyHsComponent {
-  @Input() id:number=0;
-  @Input() name:string="";
-  @Input() url:string='';
+  @Input() id!: number;
+  @Input() title!: string;
+  @Input() description!: string;
+  @Input() images!: string[];
+  @Input() lien!:string;
 }

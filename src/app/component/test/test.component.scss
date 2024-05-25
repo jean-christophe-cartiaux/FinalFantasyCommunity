@@ -1,0 +1,21 @@
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+
+}
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu.fade {
+  opacity: 1;
+}

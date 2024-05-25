@@ -1,18 +1,37 @@
-<div class="container">
-  @for (finalFantasy of ffNumeroter;track finalFantasy ){
-    <app-final-fantasy-n
-    [id]="finalFantasy.id"
-    [name]="finalFantasy.name"
-    [url]="finalFantasy.url"
-    [img]="finalFantasy.img"
-    ></app-final-fantasy-n>
-  }
-  @for(finalFantasy of ffHorsSerie;track finalFantasy){
-    <app-final-fantasy-hs
-      [id]="finalFantasy.id"
-      [name]="finalFantasy.name"
-      [url]="finalFantasy.url"
-    ></app-final-fantasy-hs>
-  }
 
-</div>
+<ul>
+@for(menuItem of ffN; track menuItem) {
+  <li (click)="displayContent(menuItem.id,'N')" routerLink="{{menuItem.lien}}">{{menuItem.title}}</li>
+}
+</ul>
+
+
+<ul>
+  @for(menuItem of ffHs; track menuItem) {
+    <li (click)="displayContent(menuItem.id,'HS')">{{menuItem.title}}</li>
+  }
+</ul>
+
+
+
+
+@if (finalfantasyN) {
+
+  <app-final-fantasy-n
+    [id]="finalfantasyN.id"
+    [title]="finalfantasyN.title"
+    [description]="finalfantasyN.description"
+    [images]="finalfantasyN.images"
+    [lien]="finalfantasyN.lien"
+  ></app-final-fantasy-n>
+
+} @else if (finalfantasyHs) {
+
+  <app-final-fantasy-hs
+    [id]="finalfantasyHs.id"
+    [title]="finalfantasyHs.title"
+    [description]="finalfantasyHs.description"
+    [images]="finalfantasyHs.images"
+  ></app-final-fantasy-hs>
+
+}
