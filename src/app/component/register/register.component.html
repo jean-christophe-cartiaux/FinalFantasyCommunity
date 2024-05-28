@@ -1,10 +1,12 @@
 <body>
+<form (ngSubmit)="register()" [formGroup]="registerForm">
 <br>
   <div class="card card-center">
-    <br>
+
+
     <p >Pseudo</p>
     <p-floatLabel>
-      <input pInputText id="pseudo" [(ngModel)]="pseudo" class="uniform-input" />
+      <input pInputText id="pseudo" [(ngModel)]="pseudo" class="uniform-input" required/>
       <label for="pseudo">Pseudo</label>
     </p-floatLabel>
     <br>
@@ -16,15 +18,16 @@
     <br>
     <p>Email</p>
     <p-floatLabel>
-      <input pInputText id="email" [(ngModel)]="email" class="uniform-input" />
+      <input pInputText id="email" [(ngModel)]="email" class="uniform-input" required />
       <label for="email">Email</label>
     </p-floatLabel>
     <br>
     <p>Password</p>
     <p-floatLabel>
-      <p-password  [(ngModel)]="pswd" [toggleMask]="true" class="uniform-input" />
+      <p-password  [(ngModel)]="pswd" [toggleMask]="true" class="uniform-input" required/>
     </p-floatLabel>
     <br>
     <p-button label="Confirmer" [raised]="true"  class="Bt-Droite"/>
   </div>
+</form>
 </body>

@@ -4,6 +4,7 @@ import {PaginatorModule} from "primeng/paginator";
 import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {ButtonModule} from "primeng/button";
+import {FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ import {ButtonModule} from "primeng/button";
     PaginatorModule,
     InputTextModule,
     PasswordModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -23,4 +25,8 @@ export class RegisterComponent {
   prenom:string|undefined;
   email:string|undefined;
   pswd!:string;
+
+  registerForm!:FormGroup;
+
+  register(){}
 }
