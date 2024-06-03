@@ -4,7 +4,10 @@
   border-radius: 0.5rem;
 }
 
-
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
 .dropdown-toggle::after {
   display: none;
 }

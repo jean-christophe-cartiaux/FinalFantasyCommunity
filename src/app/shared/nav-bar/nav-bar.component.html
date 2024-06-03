@@ -9,34 +9,10 @@
       <a class="nav-link dropdown-toggle"
          routerLink="FinalFantasy"
          aria-expanded="false">Final Fantasy N°</a>
-      <ul class="dropdown-menu" [class.show]="isDropdownOpen[1]" [class.fade]="isFading[1]">
-        <a class="dropdown-item" routerLink="FinalFantasy"> <img  class="imgff" src="assets/img/finalF1.png" alt="ff1"/></a>
-        <a class="dropdown-item" routerLink="ff2"><img  class="imgff" src="assets/img/FF2.png" alt="ff2"/></a>
-        <a class="dropdown-item" routerLink="/ff3"><img  class="imgff" src="assets/img/FF3.png" alt="ff3"/></a>
-        <a class="dropdown-item" routerLink="/ff4"><img  class="imgff" src="assets/img/FF4.png" alt="ff4"/></a>
-        <a class="dropdown-item" routerLink="/ff4after"><img  class="imgff" src="assets/img/FF4After.png" alt="ff4After"/></a>
-        <a class="dropdown-item" routerLink="/ff5"><img  class="imgff" src="assets/img/FF5.png" alt="ff5"/></a>
-        <a class="dropdown-item" routerLink="/ff6"><img  class="imgff" src="assets/img/FF6.png" alt="ff6"/></a>
-        <a class="dropdown-item" routerLink="/ff7">Final Fantasy VII</a>
-        <a class="dropdown-item" routerLink="/ff7CrisisCore">Final Fantasy VII Crisis Core</a>
-        <a class="dropdown-item" routerLink="/ff7DrigeOfCerberus">Final Fantasy VII Drige Of Cerberus</a>
-        <a class="dropdown-item" routerLink="/ff7Reunion">Final Fantasy VII Reunion</a>
-        <a class="dropdown-item" routerLink="/ff7Remake">Final Fantasy VII Remake</a>
-        <a class="dropdown-item" routerLink="/ff7Rebirth">Final Fantasy VII Rebirth</a>
-        <a class="dropdown-item" routerLink="/ff7part3">Final Fantasy VII Part 3</a>
-        <a class="dropdown-item" routerLink="/ff8">Final Fantasy VIII</a>
-        <a class="dropdown-item" routerLink="/ff9"><img  class="imgff" src="assets/img/FF9.png" alt="ff9"/></a>
-        <a class="dropdown-item" routerLink="/ff10">Final Fantasy X</a>
-        <a class="dropdown-item" routerLink="/ff10-2">Final Fantasy X-2</a>
-        <a class="dropdown-item" routerLink="/ff11">Final Fantasy XI</a>
-        <a class="dropdown-item" routerLink="/ff12">Final Fantasy XII</a>
-        <a class="dropdown-item" routerLink="/ff12RevenantWings">Final Fantasy XII Revenant Wings</a>
-        <a class="dropdown-item" routerLink="/ff13">Final Fantasy XIII</a>
-        <a class="dropdown-item" routerLink="/ff13-2">Final Fantasy XIII-2</a>
-        <a class="dropdown-item" routerLink="/ff13LightningReturn">Final Fantasy XIII LightningReturn</a>
-        <a class="dropdown-item" routerLink="/ff14">Final Fantasy XIV</a>
-        <a class="dropdown-item" routerLink="/ff15">Final Fantasy XV</a>
-        <a class="dropdown-item" routerLink="/ff16">Final Fantasy XVI</a>
+      <ul>
+        @for(menuItem of ffN; track menuItem) {
+          <li (click)="displayContent(menuItem.id,'N')">{{menuItem.title}}</li>
+        }
       </ul>
 
     </li>
@@ -46,23 +22,10 @@
       <a class="nav-link dropdown-toggle"
          routerLink="FinalFantasy" role="button"
          aria-expanded="false">Final Fantasy HS</a>
-      <ul class="dropdown-menu" [class.show]="isDropdownOpen[2]" [class.fade]="isFading[2]">
-        <a class="dropdown-item" routerLink="/DissidiaFfNt">Dissidia Final Fantasy NT</a>
-        <a class="dropdown-item" routerLink="/BraveExvius">Final Fantasy Brave Exvius</a>
-        <a class="dropdown-item" routerLink="/CollectionSaga">Final Fantasy Collection Of Saga</a>
-        <a class="dropdown-item" routerLink="/CrystalChronicles">Final Fantasy Crystal Chronicles Remastered Edition</a>
-        <a class="dropdown-item" routerLink="/CrystalDefender">Final Fantasy Crystal Defender</a>
-        <a class="dropdown-item" routerLink="/Dissidia">Final Fantasy Dissidia</a>
-        <a class="dropdown-item" routerLink="/Dissidia012">Final Fantasy Dissidia 012</a>
-        <a class="dropdown-item" routerLink="/Origin">Final Fantasy Origin Stranger Of Paradise</a>
-        <a class="dropdown-item" routerLink="/tactics">Final Fantasy Tactics</a>
-        <a class="dropdown-item" routerLink="/TacticWarOfLions">Final Fantasy Tactics War Of Lions</a>
-        <a class="dropdown-item" routerLink="/Theatrhythm">Final Fantasy Theatrhythm</a>
-        <a class="dropdown-item" routerLink="/TheatrhythmCurtainCall">Final Fantasy Theatrhythm Curtain Call</a>
-        <a class="dropdown-item" routerLink="/Type-0">Final Fantasy Type-0</a>
-        <a class="dropdown-item" routerLink="/WorldOfFinalFantasy">World Of FinalFantasy</a>
-
-
+      <ul>
+        @for(menuItem of ffHs; track menuItem) {
+          <li (click)="displayContent(menuItem.id,'HS')">{{menuItem.title}}</li>
+        }
       </ul>
     </li>
     <li class="nav-item">
@@ -79,4 +42,6 @@
     </li>
   </ul>
 </div>
+
+
 
