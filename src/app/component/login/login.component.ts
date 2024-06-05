@@ -10,7 +10,7 @@ import {Subscription} from "rxjs";
 import {AuthService} from "../../service/auth.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {MessageModule} from "primeng/message";
-
+import {NavBisComponent} from "../../shared/nav-bis/nav-bis.component";
 
 
 @Component({
@@ -46,14 +46,17 @@ export class LoginComponent implements OnInit{
     })
   }
   ngOnInit():void{
-    this.messageSub=this._route.params.subscribe(params => {
+    this._route.params.subscribe(params => {
       this.successRegister=params['message'];
     })
   }
   login(){
     if(this.loginForm.valid){
       this.loginSub=this._authService.login(this.loginForm.value).subscribe({
-        next : (response)=> this._router.navigate(['/home']),
+        next : (response)=> {
+
+          this._router.navigate(['/actualiter']);
+        },
         error:(error)=> console.error(error)
       })
 

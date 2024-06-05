@@ -1,4 +1,4 @@
-
+/*
 .navbar{
   background-color: #3B82F6;
   border-radius: 0.5rem;
@@ -60,4 +60,20 @@ ul {
 .imgff{
   width: 15rem;
   height: 11rem;
+}
+*/
+
+
+
+
+p-menubar{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+p-menuitem-text{
+
 }

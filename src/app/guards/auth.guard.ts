@@ -1,13 +1,19 @@
-import {CanActivateFn,Router} from "@angular/router";
-import { inject} from "@angular/core";
+import { Injectable } from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthService} from "../service/auth.service";
 
-export const authGuard:CanActivateFn = (route,state)=>{
-  const router = inject(Router)
-  const token = localStorage.getItem('token')
-  if (token){
-    return true;
-  }else {
-    router.navigate(['/utilisateurs/login'])
-    return false;
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard  {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(): boolean {
+    if (this.authService.authStatus.getValue()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']); // Redirection vers la page de connexion si l'utilisateur n'est pas connecté
+      return false;
+    }
   }
-};
+}

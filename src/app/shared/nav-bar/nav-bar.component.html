@@ -1,47 +1,4 @@
-<div class="container">
-  <ul class="nav nav-pills custom-navbar">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/actualiter">Actualités</a>
-    </li>
-    <li class="nav-item dropdown"
-        (mouseenter)="onMouseEnter(1)"
-        (mouseleave)="onMouseLeave(1)">
-      <a class="nav-link dropdown-toggle"
-         routerLink="FinalFantasy"
-         aria-expanded="false">Final Fantasy N°</a>
-      <ul>
-        @for(menuItem of ffN; track menuItem) {
-          <li (click)="displayContent(menuItem.id,'N')">{{menuItem.title}}</li>
-        }
-      </ul>
-
-    </li>
-    <li class="nav-item dropdown"
-        (mouseenter)="onMouseEnter(2)"
-        (mouseleave)="onMouseLeave(2)">
-      <a class="nav-link dropdown-toggle"
-         routerLink="FinalFantasy" role="button"
-         aria-expanded="false">Final Fantasy HS</a>
-      <ul>
-        @for(menuItem of ffHs; track menuItem) {
-          <li (click)="displayContent(menuItem.id,'HS')">{{menuItem.title}}</li>
-        }
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="fftcg">FFTCG</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " routerLink="event">Event</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="contact">Contact</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " routerLink="test">Test</a>
-    </li>
-  </ul>
-</div>
+<p-menubar [model]="items" styleClass="bg-orange-400 custom-menubar">
 
 
-
+</p-menubar>

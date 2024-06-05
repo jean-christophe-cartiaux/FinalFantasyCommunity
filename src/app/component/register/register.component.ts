@@ -6,6 +6,7 @@ import {PasswordModule} from "primeng/password";
 import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import {Router, RouterLink} from "@angular/router";
+import{NavBisComponent} from "../../shared/nav-bis/nav-bis.component";
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,10 @@ export class RegisterComponent {
   register() {
     if (this.registerForm.valid) {
       this.registerSub = this._authService.register(this.registerForm.value).subscribe({
-        next: (response: any) => this._router.navigate(['/login', {message: response.message}]),
+        next: (response: any) =>{
+
+          this._router.navigate(['/login', {message: response.message}]);
+        },
         error: (error) => console.error(error)
       })
     }
