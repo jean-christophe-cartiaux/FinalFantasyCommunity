@@ -8,6 +8,7 @@ import {MenuItem} from "primeng/api";
 import {BadgeModule} from "primeng/badge";
 import {AvatarModule} from "primeng/avatar";
 import {NgClass} from "@angular/common";
+import {MegaMenuModule} from "primeng/megamenu";
 
 export interface IFinalFantasy{
   id:number;
@@ -29,7 +30,8 @@ export interface IFinalFantasy{
     MenubarModule,
     BadgeModule,
     AvatarModule,
-    NgClass
+    NgClass,
+    MegaMenuModule
 
   ],
   templateUrl: './nav-bar.component.html',
@@ -43,18 +45,21 @@ export class NavBarComponent implements OnInit{
   ngOnInit() {
     this.items = [
       {
-        label: 'Actualiter',
+        label: 'Actualités',
         icon: 'pi pi-home',
-        routerLink: ['/actualiter']
+        routerLink: ['/actualiter'],
+
       },
       {
         label: 'Final Fantasy n°',
         icon: 'assets/icons/Gunbreaker.png',
         routerLink: ['/FinalFantasy'],
+
         items: [
+
           {
             label: 'Final Fantasy I',
-            image: 'assets/img/FF1Full.png',
+            icon: 'assets/icons/FF1Full.svg',
             command:()=> this.navigate(1,'ffN')
           },
           {
@@ -187,12 +192,15 @@ export class NavBarComponent implements OnInit{
             icon: 'src/assets/icons/Gunbreaker.png',
             routerLink: ['/ff16']
           },
-        ]
+        ],
+
+
       },
       {
         label: 'Final Fantasy Hors-série',
         icon: 'assets/img/mob_book_bis.png',
         routerLink: ['/final-fantasy-hors-serie'],
+
         items: [
           {
             label: 'Dissidia Final Fantasy NT',
