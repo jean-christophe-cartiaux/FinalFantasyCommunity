@@ -54,7 +54,7 @@ export class NavBarComponent implements OnInit{
         items: [
           {
             label: 'Final Fantasy I',
-            icon: 'assets/icons/Gunbreaker.png',
+            image: 'assets/img/FF1Full.png',
             command:()=> this.navigate(1,'ffN')
           },
           {

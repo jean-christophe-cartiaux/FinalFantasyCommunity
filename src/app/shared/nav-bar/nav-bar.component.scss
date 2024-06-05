@@ -69,11 +69,9 @@ ul {
 p-menubar{
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+
   align-items: center;
-  width: 100%;
+  
   justify-content: space-between;
 }
-p-menuitem-text{
 
-}

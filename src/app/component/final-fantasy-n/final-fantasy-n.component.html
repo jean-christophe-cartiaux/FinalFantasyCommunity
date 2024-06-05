@@ -1,15 +1,15 @@
 
-<section>
+<section >
   @if  (ffN){
-  <div>
-
+  <div class="text-center">
+    <img [src]="ffN.images" alt="{{ ffN.title }}" >
+  </div>
+<div>
       <h1>{{ffN.title}}</h1>
 
     <h3>{{ffN.description}}</h3>
+</div>
 
-    <img [src]="ffN.images" alt="{{ ffN.title }}">
-
-  </div>
   }
 </section>
 
