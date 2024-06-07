@@ -1,48 +1,46 @@
-<div class="container">
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/actualiter">Actualiter</a>
-    </li>
-    <li class="nav-item dropdown"
-        (mouseenter)="onMouseEnter(1)"
-        (mouseleave)="onMouseLeave(1)">
-      <a class="nav-link dropdown-toggle"
-         href="#" role="button"
-         aria-expanded="false">Final Fantasy N°</a>
-      <ul class="dropdown-menu" [class.show]="isDropdownOpen[1]" [class.fade]="isFading[1]">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
-    </li>
+<button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+<mat-menu #animals="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+  <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+</mat-menu>
 
-    <li class="nav-item dropdown"
-        (mouseenter)="onMouseEnter(2)"
-        (mouseleave)="onMouseLeave(2)">
-      <a class="nav-link dropdown-toggle"
-         href="#" role="button"
-         aria-expanded="false">Final Fantasy HS</a>
-      <ul class="dropdown-menu" [class.show]="isDropdownOpen[2]" [class.fade]="isFading[2]">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="fftcg">FFTCG</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " routerLink="event">Event</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="contact">Contact</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " routerLink="test">Test</a>
-    </li>
-  </ul>
-</div>
+<mat-menu #vertebrates="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+  <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+  <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+  <button mat-menu-item>Birds</button>
+  <button mat-menu-item>Mammals</button>
+</mat-menu>
+
+<mat-menu #invertebrates="matMenu">
+  <button mat-menu-item>Insects</button>
+  <button mat-menu-item>Molluscs</button>
+  <button mat-menu-item>Crustaceans</button>
+  <button mat-menu-item>Corals</button>
+  <button mat-menu-item>Arachnids</button>
+  <button mat-menu-item>Velvet worms</button>
+  <button mat-menu-item>Horseshoe crabs</button>
+</mat-menu>
+
+<mat-menu #fish="matMenu">
+  <button mat-menu-item>Baikal oilfish</button>
+  <button mat-menu-item>Bala shark</button>
+  <button mat-menu-item>Ballan wrasse</button>
+  <button mat-menu-item>Bamboo shark</button>
+  <button mat-menu-item>Banded killifish</button>
+</mat-menu>
+
+<mat-menu #amphibians="matMenu">
+  <button mat-menu-item>Sonoran desert toad</button>
+  <button mat-menu-item>Western toad</button>
+  <button mat-menu-item>Arroyo toad</button>
+  <button mat-menu-item>Yosemite toad</button>
+</mat-menu>
+
+<mat-menu #reptiles="matMenu">
+  <button mat-menu-item>Banded Day Gecko</button>
+  <button mat-menu-item>Banded Gila Monster</button>
+  <button mat-menu-item>Black Tree Monitor</button>
+  <button mat-menu-item>Blue Spiny Lizard</button>
+  <button mat-menu-item disabled>Velociraptor</button>
+</mat-menu>

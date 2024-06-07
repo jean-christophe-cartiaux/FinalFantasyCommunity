@@ -4,10 +4,12 @@ import {RouterLink} from "@angular/router";
 import {ImageModule} from "primeng/image";
 import {AuthService} from "../../service/auth.service";
 import {Subscription} from "rxjs";
+import {MatButton} from "@angular/material/button";
+
 @Component({
   selector: 'app-nav-bis',
   standalone: true,
-  imports: [RouterLink,ButtonModule,ImageModule],
+  imports: [RouterLink, ButtonModule, ImageModule, MatButton],
   templateUrl: './nav-bis.component.html',
   styleUrl: './nav-bis.component.scss'
 })

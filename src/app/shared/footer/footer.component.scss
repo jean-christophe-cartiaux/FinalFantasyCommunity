@@ -4,14 +4,25 @@
   width: 100%;
   margin-top: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centrer le contenu horizontalement */
+  padding: 1rem 0; /* ajuster le padding si nécessaire */
 }
-.content{
-  max-width:1200px;
+
+.content {
+  max-width: 1200px;
+  width: 100%; /* s'assurer que la largeur est de 100% pour le centrer */
   margin: auto;
-  align-items: center;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* espacer le contenu horizontalement */
+  flex-direction: column; /* aligner les éléments en colonne sur petits écrans */
+}
+
+.footer .social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem; /* ajouter un espace au-dessus des icônes */
 }
 
 .footer .social-media a {
@@ -28,9 +39,5 @@
   color: #6c757d;
   text-align: center;
   width: 100%;
+  margin-bottom: 1rem; /* ajouter un espace en dessous du texte */
 }
-
-.p-w-full {
-  width: 100%;
-}
-

@@ -11,6 +11,7 @@ import {TestComponent} from "./component/test/test.component";
 import {FinalFantasyHsComponent} from "./component/final-fantasy-hs/final-fantasy-hs.component";
 import {FinalFantasyNComponent} from "./component/final-fantasy-n/final-fantasy-n.component";
 import {ProfilComponent} from "./component/profil/profil.component";
+import{NavBarComponent} from "./shared/nav-bar/nav-bar.component";
 
 export const routes: Routes = [
   {path:'', redirectTo: '/actualiter', pathMatch: 'full' },

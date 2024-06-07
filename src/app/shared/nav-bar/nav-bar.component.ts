@@ -1,161 +1,142 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from "@angular/router";
-import { FinalFantasyNComponent } from "../../component/final-fantasy-n/final-fantasy-n.component";
-import { FinalFantasyHsComponent } from "../../component/final-fantasy-hs/final-fantasy-hs.component";
+import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import { Router } from "@angular/router";
+import { RouterModule } from "@angular/router";
+import {routes} from "../../app.routes";
+import {MatMenu, MatMenuItem, MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
+import {MatButton, MatIconButton} from "@angular/material/button";
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
+import {MatIcon} from "@angular/material/icon";
+import {MatDivider} from "@angular/material/divider";
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatAccordion, MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle} from "@angular/material/expansion";
 
-import { MenubarModule } from "primeng/menubar";
-import { MegaMenuItem } from "primeng/api";
-import { BadgeModule } from "primeng/badge";
-import { AvatarModule } from "primeng/avatar";
-import { NgClass } from "@angular/common";
-import { MegaMenuModule } from "primeng/megamenu";
 
-export interface IFinalFantasy {
-  id: number;
+export interface MenuItem {
+  id:number;
+  label: string;
+  icon:string;
+}
+interface FinalFantasySection {
   title: string;
-  description: string;
-  images: string[];
-  lien: string;
+  items: MenuItem[];
 }
 
 @Component({
   selector: 'app-nav-bar',
-  standalone: true,
+  standalone:true,
   imports: [
-    RouterLink,
-    FinalFantasyNComponent,
-    FinalFantasyHsComponent,
+    RouterModule,
+    MatMenu,
+    MatMenuTrigger,
+    MatButton,
+    MatMenuItem,
+    MatToolbar,
+    MatIcon,
+    MatDivider,
+    MatIconButton,
+    MatMenuModule,
+    MatToolbarModule,
+    MatNavList,
+    MatAccordion,
+    MatExpansionPanel,
+    MatExpansionPanelTitle,
+    MatListItem,
+    MatExpansionModule
 
-    MenubarModule,
-    BadgeModule,
-    AvatarModule,
-    NgClass,
-    MegaMenuModule
   ],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  items: MegaMenuItem[] | undefined;
+  finalFantasySections: FinalFantasySection[] = [];
+  finalFantasyHs: MenuItem[] = [];
+  expandedSectionIndex: number | null = null;
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private el: ElementRef, private renderer: Renderer2) {}
   ngOnInit() {
-    this.items = [
+    this.finalFantasySections = [
       {
-        label: 'Actualités',
-        icon: 'pi pi-home',
-        routerLink: ['/actualiter']
-      },
-      {
-        label: 'Final Fantasy n°',
-        icon: 'assets/icons/Gunbreaker.png',
+        title: 'FF I-VI',
         items: [
-          [
-            {
-              label: 'FF I-VI',
-              items: [
-                { label: 'Final Fantasy I', icon: 'assets/icons/FF1Full.svg', command: () => this.navigate(1, 'ffN') },
-                { label: 'Final Fantasy II', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff2'] },
-                { label: 'Final Fantasy III', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff3'] },
-                { label: 'Final Fantasy IV', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff4'] },
-                { label: 'Final Fantasy IV After Years', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff4after'] },
-                { label: 'Final Fantasy V', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff5'] },
-                { label: 'Final Fantasy VI', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff6'] },
-              ]
-            }
-          ],
-          [
-            {
-              label: 'FF VII Series',
-              items: [
-                { label: 'Final Fantasy VII', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7'] },
-                { label: 'FF VII Crisis Core', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7CrisisCore'] },
-                { label: 'FF VII Dirge Of Cerberus', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7DrigeOfCerberus'] },
-                { label: 'FF VII Reunion', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7Reunion'] },
-                { label: 'FF VII Remake', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7Remake'] },
-                { label: 'FF VII Rebirth', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7Rebirth'] },
-                { label: 'FF VII Part 3', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff7part3'] },
-              ]
-            }
-          ],
-          [
-            {
-              label: 'FF VIII-X',
-              items: [
-                { label: 'Final Fantasy VIII', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff8'] },
-                { label: 'Final Fantasy IX', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff9'] },
-                { label: 'Final Fantasy X', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff10'] },
-                { label: 'Final Fantasy X-2', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff10-2'] },
-              ]
-            }
-          ],
-          [
-            {
-              label: 'FF XI-XVI',
-              items: [
-                { label: 'Final Fantasy XI', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff11'] },
-                { label: 'Final Fantasy XII', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff12'] },
-                { label: 'FF XII Revenant Wings', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff12RevenantWings'] },
-                { label: 'Final Fantasy XIII', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff13'] },
-                { label: 'FF XIII-2', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff13-2'] },
-                { label: 'FF XIII Lightning Return', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff13LightningReturn'] },
-                { label: 'Final Fantasy XIV', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff14'] },
-                { label: 'Final Fantasy XV', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff15'] },
-                { label: 'Final Fantasy XVI', icon: 'src/assets/icons/Gunbreaker.png', routerLink: ['/ff16'] },
-              ]
-            }
-          ]
-        ],
+          { id: 1, label: 'Final Fantasy I', icon: 'assets/icons/FF1Full.svg' },
+          { id: 2, label: 'Final Fantasy II', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 3, label: 'Final Fantasy III', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 4, label: 'Final Fantasy IV', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 5, label: 'Final Fantasy IV After Years', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 6, label: 'Final Fantasy V', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 7, label: 'Final Fantasy VI', icon: 'src/assets/icons/Gunbreaker.png' }
+        ]
       },
       {
-        label: 'Final Fantasy Hors-série',
-        icon: 'assets/img/mob_book_bis.png',
+        title: 'FF VII Series',
         items: [
-          [
-            { label: 'Dissidia Final Fantasy NT', icon: '', routerLink: ['/DissidiaFfNt'] },
-            { label: 'Final Fantasy Brave Exvius', icon: '', routerLink: ['/BraveExvius'] },
-            { label: 'Final Fantasy Collection Of Saga', icon: '', routerLink: ['/CollectionSaga'] },
-            { label: 'FF Crystal Chronicles Remastered Edition', icon: '', routerLink: ['/CrystalChronicles'] },
-          ],
-          [
-            { label: 'FF Crystal Defender', icon: '', routerLink: ['/CrystalDefender'] },
-            { label: 'Final Fantasy Dissidia', icon: '', routerLink: ['/Dissidia'] },
-            { label: 'Final Fantasy Dissidia 012', icon: '', routerLink: ['/Dissidia012'] },
-            { label: 'FF Origin Stranger Of Paradise', icon: '', routerLink: ['/Origin'] },
-          ],
-          [
-            { label: 'Final Fantasy Tactics', icon: '', routerLink: ['/tactics'] },
-            { label: 'FF Tactics War Of Lions', icon: '', routerLink: ['/TacticWarOfLions'] },
-            { label: 'Final Fantasy Theatrhythm', icon: '', routerLink: ['/Theatrhythm'] },
-            { label: 'FF Theatrhythm Curtain Call', icon: '', routerLink: ['/TheatrhythmCurtainCall'] },
-          ],
-          [
-            { label: 'Final Fantasy Type-0', icon: '', routerLink: ['/Type-0'] },
-            { label: 'World Of FinalFantasy', icon: '', routerLink: ['/WorldOfFinalFantasy'] },
-          ],
-        ],
+          { id: 8, label: 'Final Fantasy VII', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 9, label: 'FF VII Crisis Core', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 10, label: 'FF VII Dirge Of Cerberus', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 11, label: 'FF VII Reunion', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 12, label: 'FF VII Remake', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 13, label: 'FF VII Rebirth', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 14, label: 'FF VII Part 3', icon: 'src/assets/icons/Gunbreaker.png' }
+        ]
       },
       {
-        label: 'FFTCG',
-        icon: 'pi pi-envelope',
-        routerLink: ["/fftcg"]
+        title: 'FF VIII-X',
+        items: [
+          { id: 15, label: 'Final Fantasy VIII', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 16, label: 'Final Fantasy IX', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 17, label: 'Final Fantasy X', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 18, label: 'Final Fantasy X-2', icon: 'src/assets/icons/Gunbreaker.png' }
+        ]
       },
       {
-        label: 'Event',
-        icon: 'pi pi-envelope',
-        routerLink: ['/event']
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
-        routerLink: ['/contact']
+        title: 'FF XI-XVI',
+        items: [
+          { id: 19, label: 'Final Fantasy XI', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 20, label: 'Final Fantasy XII', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 21, label: 'FF XII Revenant Wings', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 22, label: 'Final Fantasy XIII', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 23, label: 'FF XIII-2', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 24, label: 'FF XIII Lightning Return', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 25, label: 'Final Fantasy XIV', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 26, label: 'Final Fantasy XV', icon: 'src/assets/icons/Gunbreaker.png' },
+          { id: 27, label: 'Final Fantasy XVI', icon: 'src/assets/icons/Gunbreaker.png' }
+        ]
       }
     ];
+
+    this.finalFantasyHs = [
+      { id: 28, label: 'Dissidia Final Fantasy NT', icon: '' },
+      { id: 29, label: 'Final Fantasy Brave Exvius', icon: '' },
+      { id: 30, label: 'Final Fantasy Collection Of Saga', icon: '' },
+      { id: 31, label: 'FF Crystal Chronicles Remastered Edition', icon: '' },
+      { id: 32, label: 'FF Crystal Defender', icon: '' },
+      { id: 33, label: 'Final Fantasy Dissidia', icon: '' },
+      { id: 34, label: 'Final Fantasy Dissidia 012', icon: '' },
+      { id: 35, label: 'FF Origin Stranger Of Paradise', icon: '' },
+      { id: 36, label: 'Final Fantasy Tactics', icon: '' },
+      { id: 37, label: 'FF Tactics War Of Lions', icon: '' },
+      { id: 38, label: 'Final Fantasy Theatrhythm', icon: '' },
+      { id: 39, label: 'FF Theatrhythm Curtain Call', icon: '' },
+      { id: 40, label: 'Final Fantasy Type-0', icon: '' },
+      { id: 41, label: 'World Of Final Fantasy', icon: '' }
+    ];
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (!this.el.nativeElement.contains(e.target)) {
+        this.expandedSectionIndex = null;
+      }
+    });
+  }
+
+  toggleSection(index: number) {
+    this.expandedSectionIndex = this.expandedSectionIndex === index ? null : index;
   }
 
   navigate(id: number, type: string) {
     const url = type === 'ffN' ? `/finalfantasyN/${id}` : `/finalfantasyhs/${id}`;
     this.router.navigate([url]);
   }
+
+
+
 }
+

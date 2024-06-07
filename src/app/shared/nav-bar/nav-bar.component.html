@@ -1,7 +1,75 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="item-content actualites">
+    <button mat-button [routerLink]="['/actualiter']">
+      <mat-icon>home</mat-icon>
+      <span>Actualités</span>
+    </button>
+  </div>
 
-<!--<p-menubar [model]="items" styleClass="bg-orange-400 custom-menubar">-->
-<!--</p-menubar>-->
+  <div class="item-content hover">
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Final Fantasy n°
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        @for (section of finalFantasySections; track section) {
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ section.title }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              @for (item of section.items; track item) {
+                <button mat-list-item (click)="navigate(item.id, 'ffN')">
+                  <img [src]="item.icon" class="menu-icon" />
+                  <span>{{ item.label }}</span>
+                </button>
+              }
+            </mat-nav-list>
+          </mat-expansion-panel>
+        }
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 
-<div class="card  flex justify-content-center align-items-center ">
-  <p-megaMenu [model]="items" styleClass="bg-orange-400  w-12 font-semibold "/>
-</div>
+  <div class="item-content hover">
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Final Fantasy Hors-série
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          @for (item of finalFantasyHs; track item) {
+            <button mat-list-item (click)="navigate(item.id, 'ffHs')">
+              {{ item.label }}
+            </button>
+          }
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="item-content">
+    <button mat-button [routerLink]="['/fftcg']">
+      <mat-icon>card_membership</mat-icon>
+      <span>FFTCG</span>
+    </button>
+  </div>
+  <div class="item-content">
+    <button mat-button [routerLink]="['/event']">
+      <mat-icon>event</mat-icon>
+      <span>Event</span>
+    </button>
+  </div>
+  <div class="item-content contact">
+    <button mat-button [routerLink]="['/contact']">
+      <mat-icon>mail</mat-icon>
+      <span>Contact</span>
+    </button>
+  </div>
+</mat-toolbar>
