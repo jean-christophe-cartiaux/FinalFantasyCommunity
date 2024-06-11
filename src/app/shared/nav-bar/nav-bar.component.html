@@ -62,6 +62,7 @@
   </div>
   <div class="item-content">
     <button mat-button [routerLink]="['/event']">
+
       <mat-icon>event</mat-icon>
       <span>Event</span>
     </button>
@@ -72,4 +73,12 @@
       <span>Contact</span>
     </button>
   </div>
+  @if(authService.isAdmin()){
+  <div class="item-content contact" >
+    <button mat-button [routerLink]="['/creationcontenue']">
+      <mat-icon>contact</mat-icon>
+      <span>Admin</span>
+    </button>
+  </div>
+  }
 </mat-toolbar>

@@ -24,6 +24,14 @@ export class AuthService {
         return utilisateurs;
       }))
   }
+  isAdmin():boolean{
+    const utilisateurstocker= localStorage.getItem('token');
+    if(!utilisateurstocker){
+      return false;
+    }
+    const utilisateurs=JSON.parse(utilisateurstocker);
+    return utilisateurs.roles && utilisateurs.roles.includes('Admin');
+  }
   logout(){
     localStorage.removeItem('token');
     this.authStatus.next(false);

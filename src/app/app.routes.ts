@@ -12,6 +12,8 @@ import {FinalFantasyHsComponent} from "./component/final-fantasy-hs/final-fantas
 import {FinalFantasyNComponent} from "./component/final-fantasy-n/final-fantasy-n.component";
 import {ProfilComponent} from "./component/profil/profil.component";
 import{NavBarComponent} from "./shared/nav-bar/nav-bar.component";
+import {AdminComponent} from "./component/admin/admin.component";
+import {AdminGuard} from "./guards/admin.guard";
 
 export const routes: Routes = [
   {path:'', redirectTo: '/actualiter', pathMatch: 'full' },
@@ -26,5 +28,6 @@ export const routes: Routes = [
   {path:"finalfantasyN/:id",component:FinalFantasyNComponent},
   {path:"finalfantasyHs/:id",component:FinalFantasyHsComponent},
   {path:"profil",component:ProfilComponent,canActivate:[AuthGuard]},
+  {path:'creationcontenue',component:AdminComponent,canActivate:[AdminGuard]},
 
 ];

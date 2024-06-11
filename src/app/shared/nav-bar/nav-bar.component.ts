@@ -9,6 +9,7 @@ import {MatIcon} from "@angular/material/icon";
 import {MatDivider} from "@angular/material/divider";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatAccordion, MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle} from "@angular/material/expansion";
+import {AuthService} from '../../service/auth.service'
 
 
 export interface MenuItem {
@@ -52,7 +53,7 @@ export class NavBarComponent implements OnInit {
   finalFantasyHs: MenuItem[] = [];
   expandedSectionIndex: number | null = null;
 
-  constructor(private router: Router, private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private router: Router, private el: ElementRef, private renderer: Renderer2,public authService:AuthService) {}
   ngOnInit() {
     this.finalFantasySections = [
       {
