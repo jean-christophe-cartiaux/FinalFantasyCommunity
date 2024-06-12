@@ -1,0 +1,59 @@
+
+.container{
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+
+}
+
+.col-2 {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.33);
+}
+
+.col-8 {
+  flex: 8;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(172, 84, 84, 0.33);
+}
+.col-2,.col-8{
+  border: 1px solid #0c23f6;
+  border-radius: 0.9rem ;
+}
+
+.droite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: auto;
+
+}
+
+
+.minMenu2{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding:0;
+  margin:0;
+
+
+
+}
+
+.minMenu2 li{
+  padding: 15px;
+}
+
+
+
+
+
