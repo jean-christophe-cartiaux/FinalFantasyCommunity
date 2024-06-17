@@ -1,7 +1,8 @@
 
-  <div class="flex flex-row align-items-center justify-content-between flex-wrap bor ">
-    <div class="flex align-items-center justify-content-center  font-bold border-round m-2">
-      <button mat-raised-button color="primary" class="bg-orange-400" routerLink="/forum">Forum</button>
+  <div class="flex flex-row align-items-end justify-content-between">
+<!--TODO  class custom-->
+    <div class="flex align-items-center justify-content-end flex-column  font-bold border-round m-2 bottom  ">
+      <button mat-raised-button color="primary" class="bg-orange-400 w-10rem" routerLink="/forum">Forum</button>
     </div>
     <div class="flex align-items-center justify-content-center m-2 img text-center">
       <a routerLink="" class="imgBis logo">
@@ -9,21 +10,21 @@
       </a>
     </div>
     @if(!loggedIn){
-    <div class="flex flex-row align-items-center border-round-lg">
-      <div class="flex align-items-center justify-content-center  font-bold border-round m-2 ml-auto">
-        <button mat-raised-button color="primary" class="bg-orange-400" routerLink="/login">Connexion</button>
+    <div class="flex flex-row align-items-center border-round-lg bottom ">
+      <div class="flex align-items-center justify-content-center  font-bold border-round m-2 ml-auto ">
+        <button mat-raised-button color="primary" class="bg-orange-400 w-10rem" routerLink="/login">Connexion</button>
       </div>
       <div class="flex align-items-center justify-content-center  font-bold border-round m-2 ">
-        <button mat-raised-button color="primary" class="bg-orange-400" routerLink="/register">Créer un compte</button>
+        <button mat-raised-button color="primary" class="bg-orange-400 w-10rem" routerLink="/register">Créer un compte</button>
       </div>
     </div>
         }@else if (loggedIn){
-      <div class="flex flex-row align-items-center border-round-lg">
+      <div class="flex flex-row align-items-center border-round-lg bottom">
         <div class="flex align-items-center justify-content-center  font-bold border-round m-2 ml-auto">
-          <button mat-raised-button color="primary" class="bg-orange-400" (click)="logout()">Deconnexion</button>
+          <button mat-raised-button color="primary" class="bg-orange-400 w-10rem" (click)="logout()">Deconnexion</button>
         </div>
-        <div class="flex align-items-center justify-content-center  font-bold border-round m-2 ">
-          <button mat-raised-button color="primary" class="bg-orange-400" routerLink="/profil">Profil</button>
+        <div class="flex align-items-center justify-content-center  font-bold border-round m-2 bottom">
+          <button mat-raised-button color="primary" class="bg-orange-400 w-10rem" routerLink="/profil">Profil</button>
         </div>
       </div>
           }

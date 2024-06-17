@@ -1,1 +1,47 @@
-<p>profil works!</p>
+<div class="form-container">
+  <form (ngSubmit)="update()" [formGroup]="updateForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Prénom</mat-label>
+      <input matInput id="prenom" formControlName="prenom"  >
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput id="nom" formControlName="nom" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Pseudo</mat-label>
+      <input matInput id="pseudo" formControlName="pseudo" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" >
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+      <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Bio</mat-label>
+      <input matInput id="bio" formControlName="bio" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>SupportPref</mat-label>
+      <input matInput id="supportPref" formControlName="supportPref" >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Validation Modification</button>
+  </form>
+  <br>
+</div>
+

@@ -1,0 +1,30 @@
+.form-container {
+  background-color: #f5f5f5; /* Fond gris clair */
+  padding: 2rem; /* Espacement intérieur */
+  border-radius: 8px; /* Bordures arrondies */
+  max-width: 500px; /* Largeur maximale du conteneur */
+  margin: 2rem auto; /* Centrage horizontal et espacement vertical */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'effet de profondeur */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le formulaire horizontalement */
+}
+
+.mat-form-field {
+  width: 100%; /* S'assure que les champs de formulaire prennent toute la largeur */
+  margin-bottom: 1rem; /* Espace entre les champs */
+}
+
+.mat-form-field-appearance-fill .mat-form-field-outline {
+  border-radius: 8px; /* Bordures légèrement arrondies */
+}
+
+button {
+  width: 100%;
+}
+.full-width{
+  width: 100%;
+}

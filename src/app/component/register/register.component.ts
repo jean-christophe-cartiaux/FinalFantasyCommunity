@@ -32,7 +32,7 @@ export class RegisterComponent {
     this.registerForm = this._fb.group({
       pseudo: [null, [Validators.required, Validators.maxLength(12)]],
       email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.maxLength(12)]]
+      password: [null, [Validators.required, Validators.maxLength(50)]]
     })
   }
 
@@ -40,7 +40,7 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.registerSub = this._authService.register(this.registerForm.value).subscribe({
         next: (response: any) => {
-          this._router.navigate(['/login', { message: response.message }]);
+          this._router.navigate(['/login', { message: 'Création de compte réussi ╰(*°▽°*)╯' }]);
         },
         error: (error) => console.error(error)
       });

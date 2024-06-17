@@ -3,11 +3,19 @@
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Pseudo</mat-label>
       <input matInput id="pseudo" formControlName="pseudo" required>
+      @if (registerForm.controls['pseudo'].touched && !registerForm.controls['pseudo'].valid)
+      {
+        <p>Pseudo Obligatoire</p>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName="email" required>
+      @if (registerForm.controls['email'].touched && !registerForm.controls['email'].valid)
+      {
+        <p>Email obligatoire et ou non conforme</p>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
@@ -16,6 +24,10 @@
       <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
       </button>
+      @if (registerForm.controls['password'].touched && !registerForm.controls['password'].valid)
+      {
+        <p>Mots de passe obligatoire et ou non conforme</p>
+      }
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit">Register</button>

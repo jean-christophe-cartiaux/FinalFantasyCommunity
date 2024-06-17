@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   successRegister!: string;
   hide = true;  // used for password visibility toggle
 
+
   constructor(private _fb: FormBuilder, private _authService: AuthService, private _route: ActivatedRoute, private _router: Router, private snackBar: MatSnackBar) {
     this.loginForm = this._fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -58,10 +59,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+
     if (this.loginForm.valid) {
       this.loginSub = this._authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          this._router.navigate(['/actualiter']);
+          this._router.navigate(['/profil']);
         },
         error: (error) => console.error(error)
       });
